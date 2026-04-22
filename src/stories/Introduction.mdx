@@ -1,0 +1,164 @@
+{/* Introduction.mdx */}
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Introduction" />
+
+<div style={{ fontFamily: 'system-ui, sans-serif', maxWidth: 860, margin: '0 auto', padding: '48px 24px' }}>
+
+# @fcontreras2/ui
+
+A modern, accessible, and fully customizable React component library built with **Tailwind CSS v4**.
+Designed with a consistent API across all components — every component speaks the same language.
+
+---
+
+## Quick start
+
+```bash
+npm install @fcontreras2/ui
+```
+
+Import the styles once at the root of your app:
+
+```tsx
+import '@fcontreras2/ui/styles.css'
+```
+
+Use any component:
+
+```tsx
+import { Button, Input, Select } from '@fcontreras2/ui'
+
+export function LoginForm() {
+  return (
+    <form>
+      <Input label="Email" type="email" placeholder="you@example.com" />
+      <Button type="submit">Sign in</Button>
+    </form>
+  )
+}
+```
+
+---
+
+## Design principles
+
+| Principle | Description |
+|---|---|
+| **Consistent API** | Every component shares the same props pattern: `size`, `variant`, `classNames`, `error`, `helperText` |
+| **Composable** | Components are primitives — combine them to build any UI |
+| **Accessible** | ARIA roles, keyboard navigation, and focus management built-in |
+| **Unstyled escape hatch** | Use `classNames` for granular token-level overrides without losing defaults |
+| **Zero config** | No theme provider required. Just import and use |
+
+---
+
+## Component library
+
+### Form controls
+
+| Component | Description |
+|---|---|
+| **Button** | 5 variants · 3 sizes · loading state · icons |
+| **Input** | Label · error · helper text · left/right addons |
+| **Textarea** | Same API as Input · auto-resize |
+| **Select** | Built on react-select · single & multi · searchable |
+| **Checkbox** | 3 sizes · indeterminate state |
+| **RadioGroup** | Controlled/uncontrolled · vertical & horizontal |
+| **Switch** | Animated toggle · same API as Checkbox |
+
+### Feedback & overlays
+
+| Component | Description |
+|---|---|
+| **Alert** | Inline messages · 5 semantic variants · dismissible |
+| **Toast** | Powered by react-toastify · `toast()` helper API |
+| **Modal** | Portal · focus trap · scroll lock · entrance animation |
+| **Tooltip** | Powered by react-tooltip · 4 placements · configurable delay |
+| **Spinner** | Accessible loading indicator · 3 sizes |
+| **Progress** | 5 color variants · 3 sizes · optional label |
+| **Skeleton** | Text · circular · rectangular · multi-line |
+
+### Display
+
+| Component | Description |
+|---|---|
+| **Badge** | Compact status labels · 5 variants · 2 sizes |
+| **BadgeDot** | Dot + label · pulse animation · status indicator |
+| **Avatar** | Image with initials fallback · deterministic colors · status dot |
+| **Text** | Typography system · h1–h6 · body · caption · overline · code |
+| **Card** | Header · body · footer · 4 shadow levels |
+
+### Navigation & layout
+
+| Component | Description |
+|---|---|
+| **Tabs** | 3 variants (line · pill · enclosed) · controlled/uncontrolled |
+| **Breadcrumb** | href or onClick items · custom separator |
+| **Pagination** | Smart ellipsis · `siblings` prop · info display |
+| **Divider** | Horizontal/vertical · optional label · 3 alignments |
+
+### Data
+
+| Component | Description |
+|---|---|
+| **Table** | Generic `Table<T>` · sortable columns · loading skeleton · empty state |
+
+---
+
+## API conventions
+
+All components follow the same prop patterns:
+
+```tsx
+// Size — shared across all components
+size?: 'sm' | 'md' | 'lg'
+
+// Variant — semantic color intent
+variant?: 'default' | 'success' | 'warning' | 'danger' | 'info'
+
+// Error & helper text — all form components
+error?: string
+helperText?: string
+
+// Granular class overrides — every component
+classNames?: {
+  root?: string
+  label?: string
+  // ... component-specific slots
+}
+```
+
+---
+
+## Theming
+
+The library uses a `primary` color palette that you can override in your CSS:
+
+```css
+@import 'tailwindcss';
+
+@theme {
+  --color-primary-50:  #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;  /* main brand color */
+  --color-primary-700: #1d4ed8;
+  /* ... */
+}
+```
+
+Change `primary` to your brand color and all components update automatically.
+
+---
+
+## Stack
+
+- **React** 18 / 19
+- **Tailwind CSS** v4
+- **react-select** — Select component
+- **react-tooltip** — Tooltip component
+- **react-toastify** — Toast notifications
+- **TypeScript** — Full type safety
+
+</div>
