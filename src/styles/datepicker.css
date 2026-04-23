@@ -1,0 +1,125 @@
+/* React DatePicker Tailwind Styling */
+
+.react-datepicker {
+  @apply rounded-lg border border-gray-200 bg-white shadow-lg;
+  font-family: inherit;
+}
+
+.react-datepicker__header {
+  @apply border-b border-gray-200 bg-gray-50 rounded-t-lg;
+  padding-top: 1rem;
+}
+
+.react-datepicker__month {
+  @apply p-4;
+}
+
+.react-datepicker__month-container {
+  @apply w-full;
+}
+
+.react-datepicker__day-names {
+  @apply flex justify-between mb-2;
+}
+
+.react-datepicker__day-name {
+  @apply text-sm font-semibold text-gray-600 w-10 text-center;
+}
+
+.react-datepicker__week {
+  @apply flex justify-between;
+}
+
+.react-datepicker__day {
+  @apply text-sm text-gray-700 w-10 h-10 flex items-center justify-center rounded transition-colors cursor-pointer;
+  &:hover {
+    @apply bg-gray-100;
+  }
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  @apply bg-primary-600 text-white font-medium;
+  &:hover {
+    @apply bg-primary-700;
+  }
+}
+
+.react-datepicker__day--today {
+  @apply font-bold text-primary-600;
+}
+
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range {
+  @apply bg-primary-100;
+}
+
+.react-datepicker__day--disabled {
+  @apply text-gray-300 cursor-not-allowed;
+  &:hover {
+    @apply bg-transparent;
+  }
+}
+
+.react-datepicker__day--outside-month {
+  @apply text-gray-300;
+}
+
+.react-datepicker__triangle {
+  @apply border-b-gray-200;
+}
+
+.react-datepicker__navigation {
+  @apply top-4;
+}
+
+.react-datepicker__navigation--previous,
+.react-datepicker__navigation--next {
+  @apply top-6 text-gray-700 hover:text-gray-900 transition-colors;
+  border: none;
+  line-height: 0;
+}
+
+.react-datepicker__navigation--previous {
+  @apply left-6;
+}
+
+.react-datepicker__navigation--next {
+  @apply right-6;
+}
+
+.react-datepicker__current-month-button {
+  @apply text-sm font-semibold text-gray-900;
+}
+
+.react-datepicker__year-select,
+.react-datepicker__month-select {
+  @apply px-2 py-1 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded cursor-pointer hover:border-gray-300;
+}
+
+.react-datepicker__time-container {
+  @apply border-l border-gray-200;
+}
+
+.react-datepicker__time {
+  @apply p-4;
+}
+
+.react-datepicker__time-box {
+  @apply rounded-lg;
+}
+
+.react-datepicker__time-list {
+  max-height: 250px;
+}
+
+.react-datepicker__time-list-item {
+  @apply px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors;
+  &--selected {
+    @apply bg-primary-600 text-white;
+  }
+}
+
+.react-datepicker-custom {
+  @apply rounded-lg shadow-lg;
+}

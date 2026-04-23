@@ -24,27 +24,29 @@ const variantTypeMap: Record<ToastVariant, RTOptions['type']> = {
 
 // ─── toast() helper ───────────────────────────────────────────────────────────
 
-export function toast(
+function toastBase(
   message: React.ReactNode,
   { variant = 'default', ...options }: ToastOptions = {},
 ) {
   return _toast(message, { type: variantTypeMap[variant], ...options })
 }
 
-toast.success = (message: React.ReactNode, options?: Omit<ToastOptions, 'variant'>) =>
+toastBase.success = (message: React.ReactNode, options?: Omit<ToastOptions, 'variant'>) =>
   _toast.success(message, options)
 
-toast.warning = (message: React.ReactNode, options?: Omit<ToastOptions, 'variant'>) =>
+toastBase.warning = (message: React.ReactNode, options?: Omit<ToastOptions, 'variant'>) =>
   _toast.warning(message, options)
 
-toast.error = (message: React.ReactNode, options?: Omit<ToastOptions, 'variant'>) =>
+toastBase.error = (message: React.ReactNode, options?: Omit<ToastOptions, 'variant'>) =>
   _toast.error(message, options)
 
-toast.info = (message: React.ReactNode, options?: Omit<ToastOptions, 'variant'>) =>
+toastBase.info = (message: React.ReactNode, options?: Omit<ToastOptions, 'variant'>) =>
   _toast.info(message, options)
 
-toast.dismiss = _toast.dismiss
-toast.promise = _toast.promise
+toastBase.dismiss = (id?: string | number) => _toast.dismiss(id)
+toastBase.promise = _toast.promise
+
+export const toast = toastBase
 
 // ─── ToastProvider ────────────────────────────────────────────────────────────
 
