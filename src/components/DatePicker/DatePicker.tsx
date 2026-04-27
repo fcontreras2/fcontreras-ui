@@ -79,13 +79,14 @@ export const DatePicker = forwardRef<ReactDatePicker, DatePickerProps>(function 
           disabled={disabled}
           className={cn(
             'w-full h-9 px-3 py-2 text-sm rounded-md border',
-            'bg-white text-gray-900 placeholder-gray-400',
-            'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500',
+            'bg-white text-neutral-900 placeholder:text-neutral-400',
+            'dark:bg-neutral-900 dark:text-neutral-100 dark:placeholder:text-neutral-600',
+            'focus:outline-none focus:ring-2 focus:ring-offset-0',
             'transition-colors duration-150',
-            'disabled:bg-gray-50 disabled:text-gray-500 disabled:cursor-not-allowed',
+            'disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-neutral-50 dark:disabled:bg-neutral-800',
             error
-              ? 'border-red-300 focus:ring-red-500'
-              : 'border-gray-300 hover:border-gray-400',
+              ? 'border-danger-500 focus:border-danger-500 focus:ring-danger-200 dark:border-danger-400 dark:focus:ring-danger-900'
+              : 'border-neutral-300 hover:border-neutral-400 focus:border-primary-500 focus:ring-primary-200 dark:border-neutral-700 dark:hover:border-neutral-500 dark:focus:border-primary-400 dark:focus:ring-primary-900',
             classNames?.input,
           )}
           popperClassName="!w-80"

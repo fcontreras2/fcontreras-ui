@@ -56,7 +56,7 @@ export function Breadcrumb({
               {isLast ? (
                 <span
                   aria-current="page"
-                  className={cn('font-medium text-gray-900 truncate', classNames?.current)}
+                  className={cn('font-medium text-neutral-900 dark:text-neutral-100 truncate', classNames?.current)}
                 >
                   {item.label}
                 </span>
@@ -64,7 +64,7 @@ export function Breadcrumb({
                 <a
                   href={item.href}
                   className={cn(
-                    'text-gray-500 hover:text-gray-700 transition-colors truncate',
+                    'text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors truncate',
                     classNames?.link,
                   )}
                 >
@@ -75,7 +75,7 @@ export function Breadcrumb({
                   type="button"
                   onClick={item.onClick}
                   className={cn(
-                    'text-gray-500 hover:text-gray-700 transition-colors truncate',
+                    'text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors truncate',
                     classNames?.link,
                   )}
                 >
@@ -83,7 +83,7 @@ export function Breadcrumb({
                 </button>
               )}
               {!isLast && (
-                <span className={cn('text-gray-400 select-none', classNames?.separator)}>
+                <span className={cn('text-neutral-400 dark:text-neutral-600 select-none', classNames?.separator)}>
                   {sep}
                 </span>
               )}

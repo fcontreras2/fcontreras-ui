@@ -64,7 +64,7 @@ export function ToastProvider({
       closeOnClick
       pauseOnHover
       draggable
-      theme="light"
+      theme="system"
       className={cn(className)}
     />
   )

@@ -44,8 +44,8 @@ export function Popover({
         anchor={align === 'right' ? 'bottom end' : 'bottom start'}
         transition
         className={cn(
-          'absolute z-50 bg-white rounded-lg shadow-lg',
-          'border border-gray-200 p-4',
+          'absolute z-50 bg-white dark:bg-neutral-900 rounded-lg shadow-lg',
+          'border border-neutral-200 dark:border-neutral-700 p-4',
           'transition duration-100 ease-out data-closed:scale-95 data-closed:opacity-0',
           align === 'right' && 'origin-top-right',
           'origin-top-left',
