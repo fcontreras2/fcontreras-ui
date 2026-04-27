@@ -51,7 +51,7 @@ export function Select<
       {label && (
         <label
           htmlFor={id}
-          className={cn('text-sm font-medium text-gray-700', classNames?.label)}
+          className={cn('text-sm font-medium text-neutral-700 dark:text-neutral-300', classNames?.label)}
         >
           {label}
         </label>
@@ -62,18 +62,20 @@ export function Select<
         classNames={{
           control: (state) =>
             cn(
-              'rounded-md border bg-white min-h-9 text-sm transition-colors cursor-pointer',
+              'rounded-md border bg-white min-h-9 text-sm transition-colors cursor-pointer text-neutral-900',
+              'dark:bg-neutral-900 dark:text-neutral-100',
               error
-                ? cn('border-red-500', state.isFocused && 'ring-2 ring-red-200')
+                ? cn('border-danger-500', state.isFocused && 'ring-2 ring-danger-200 dark:ring-danger-900')
                 : cn(
-                    'border-gray-300',
-                    state.isFocused && 'border-primary-500 ring-2 ring-primary-200',
+                    'border-neutral-300 dark:border-neutral-700',
+                    state.isFocused && 'border-primary-500 ring-2 ring-primary-200 dark:border-primary-400 dark:ring-primary-900',
                   ),
               selectClassNames?.control?.(state),
             ),
           menu: (state) =>
             cn(
-              'mt-1 rounded-md border border-gray-200 bg-white shadow-lg overflow-hidden z-50',
+              'mt-1 rounded-md border border-neutral-200 bg-white shadow-lg overflow-hidden z-50',
+              'dark:border-neutral-700 dark:bg-neutral-900',
               selectClassNames?.menu?.(state),
             ),
           menuList: (state) =>
@@ -82,23 +84,24 @@ export function Select<
             cn(
               'px-3 py-2 text-sm cursor-pointer',
               state.isSelected
-                ? 'bg-primary-600 text-white'
+                ? 'bg-primary-600 text-white dark:bg-primary-500'
                 : state.isFocused
-                  ? 'bg-primary-50 text-gray-900'
-                  : 'text-gray-900',
+                  ? 'bg-primary-50 text-neutral-900 dark:bg-primary-950 dark:text-neutral-100'
+                  : 'text-neutral-900 dark:text-neutral-100',
               selectClassNames?.option?.(state),
             ),
           placeholder: (state) =>
-            cn('text-gray-400', selectClassNames?.placeholder?.(state)),
+            cn('text-neutral-400 dark:text-neutral-600', selectClassNames?.placeholder?.(state)),
           singleValue: (state) =>
-            cn('text-gray-900', selectClassNames?.singleValue?.(state)),
+            cn('text-neutral-900 dark:text-neutral-100', selectClassNames?.singleValue?.(state)),
           multiValue: (state) =>
-            cn('bg-primary-100 rounded mr-1', selectClassNames?.multiValue?.(state)),
+            cn('bg-primary-100 rounded mr-1 dark:bg-primary-900', selectClassNames?.multiValue?.(state)),
           multiValueLabel: (state) =>
-            cn('text-primary-800 text-sm px-2 py-0.5', selectClassNames?.multiValueLabel?.(state)),
+            cn('text-primary-800 text-sm px-2 py-0.5 dark:text-primary-200', selectClassNames?.multiValueLabel?.(state)),
           multiValueRemove: (state) =>
             cn(
               'text-primary-600 hover:bg-primary-200 hover:text-primary-800 rounded-r px-1',
+              'dark:text-primary-400 dark:hover:bg-primary-800 dark:hover:text-primary-200',
               selectClassNames?.multiValueRemove?.(state),
             ),
           valueContainer: (state) =>
@@ -107,33 +110,33 @@ export function Select<
             cn('pr-2', selectClassNames?.indicatorsContainer?.(state)),
           clearIndicator: (state) =>
             cn(
-              'text-gray-400 hover:text-gray-600 cursor-pointer p-1',
+              'text-neutral-400 hover:text-neutral-600 cursor-pointer p-1 dark:text-neutral-500 dark:hover:text-neutral-300',
               selectClassNames?.clearIndicator?.(state),
             ),
           dropdownIndicator: (state) =>
             cn(
-              'text-gray-400 hover:text-gray-600 cursor-pointer p-1',
+              'text-neutral-400 hover:text-neutral-600 cursor-pointer p-1 dark:text-neutral-500 dark:hover:text-neutral-300',
               selectClassNames?.dropdownIndicator?.(state),
             ),
           indicatorSeparator: (state) =>
-            cn('bg-gray-300 mx-1', selectClassNames?.indicatorSeparator?.(state)),
+            cn('bg-neutral-300 mx-1 dark:bg-neutral-700', selectClassNames?.indicatorSeparator?.(state)),
           noOptionsMessage: (state) =>
             cn(
-              'text-sm text-gray-500 py-2 px-3 text-center',
+              'text-sm text-neutral-500 py-2 px-3 text-center dark:text-neutral-400',
               selectClassNames?.noOptionsMessage?.(state),
             ),
           loadingMessage: (state) =>
             cn(
-              'text-sm text-gray-500 py-2 px-3 text-center',
+              'text-sm text-neutral-500 py-2 px-3 text-center dark:text-neutral-400',
               selectClassNames?.loadingMessage?.(state),
             ),
         }}
         {...props}
       />
       {error ? (
-        <p className={cn('text-xs text-red-600', classNames?.errorText)}>{error}</p>
+        <p className={cn('text-xs text-danger-600 dark:text-danger-400', classNames?.errorText)}>{error}</p>
       ) : helperText ? (
-        <p className={cn('text-xs text-gray-500', classNames?.helperText)}>{helperText}</p>
+        <p className={cn('text-xs text-neutral-500 dark:text-neutral-400', classNames?.helperText)}>{helperText}</p>
       ) : null}
     </div>
   )

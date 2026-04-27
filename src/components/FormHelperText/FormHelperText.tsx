@@ -22,10 +22,10 @@ export const FormHelperText = forwardRef<HTMLParagraphElement, FormHelperTextPro
     ref
   ) {
     const variantStyles: Record<NonNullable<FormHelperTextProps['variant']>, string> = {
-      default: 'text-gray-500',
-      error: 'text-red-600 font-medium',
-      success: 'text-green-600 font-medium',
-      warning: 'text-yellow-600 font-medium',
+      default: 'text-neutral-500 dark:text-neutral-400',
+      error: 'text-danger-600 font-medium dark:text-danger-400',
+      success: 'text-success-600 font-medium dark:text-success-400',
+      warning: 'text-warning-600 font-medium dark:text-warning-400',
     }
 
     return (

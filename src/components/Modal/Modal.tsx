@@ -112,7 +112,7 @@ export function Modal({
         ref={panelRef}
         tabIndex={-1}
         className={cn(
-          'relative w-full rounded-lg bg-white shadow-xl outline-none',
+          'relative w-full rounded-lg bg-white shadow-xl outline-none dark:bg-neutral-900',
           'flex flex-col max-h-[90vh]',
           'transition-all duration-200',
           visible ? 'opacity-100 scale-100' : 'opacity-0 scale-95',
@@ -124,14 +124,14 @@ export function Modal({
         {(title || !hideCloseButton) && (
           <div
             className={cn(
-              'flex items-center justify-between px-5 py-4 border-b border-gray-200',
+              'flex items-center justify-between px-5 py-4 border-b border-neutral-200 dark:border-neutral-700',
               classNames?.header,
             )}
           >
             {title && (
               <h2
                 id={titleId}
-                className={cn('text-base font-semibold text-gray-900', classNames?.title)}
+                className={cn('text-base font-semibold text-neutral-900 dark:text-neutral-100', classNames?.title)}
               >
                 {title}
               </h2>
@@ -142,7 +142,7 @@ export function Modal({
                 aria-label="Cerrar"
                 onClick={onClose}
                 className={cn(
-                  'ml-auto rounded p-1 text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors',
+                  'ml-auto rounded p-1 text-neutral-400 hover:text-neutral-600 hover:bg-neutral-100 transition-colors dark:text-neutral-500 dark:hover:text-neutral-300 dark:hover:bg-neutral-800',
                   classNames?.closeButton,
                 )}
               >
@@ -163,7 +163,7 @@ export function Modal({
         {footer && (
           <div
             className={cn(
-              'flex items-center justify-end gap-2 px-5 py-4 border-t border-gray-200 bg-gray-50 rounded-b-lg',
+              'flex items-center justify-end gap-2 px-5 py-4 border-t border-neutral-200 bg-neutral-50 rounded-b-lg dark:border-neutral-700 dark:bg-neutral-800',
               classNames?.footer,
             )}
           >

@@ -66,19 +66,19 @@ const sizeStyles: Record<'sm' | 'md' | 'lg', string> = {
 
 const tabVariantStyles: Record<'line' | 'pill' | 'enclosed', { active: string; inactive: string; list: string }> = {
   line: {
-    list:     'border-b border-gray-200 gap-0',
-    active:   'border-b-2 border-primary-600 text-primary-600 font-medium',
-    inactive: 'border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
+    list:     'border-b border-neutral-200 gap-0 dark:border-neutral-700',
+    active:   'border-b-2 border-primary-600 text-primary-600 font-medium dark:border-primary-400 dark:text-primary-400',
+    inactive: 'border-b-2 border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300 dark:text-neutral-400 dark:hover:text-neutral-200 dark:hover:border-neutral-600',
   },
   pill: {
-    list:     'gap-1 bg-gray-100 rounded-lg p-1',
-    active:   'bg-white text-gray-900 font-medium shadow-sm rounded-md',
-    inactive: 'text-gray-500 hover:text-gray-700 rounded-md',
+    list:     'gap-1 bg-neutral-100 rounded-lg p-1 dark:bg-neutral-800',
+    active:   'bg-white text-neutral-900 font-medium shadow-sm rounded-md dark:bg-neutral-700 dark:text-neutral-100',
+    inactive: 'text-neutral-500 hover:text-neutral-700 rounded-md dark:text-neutral-400 dark:hover:text-neutral-200',
   },
   enclosed: {
-    list:     'border-b border-gray-200 gap-0',
-    active:   'border border-gray-200 border-b-white -mb-px bg-white text-gray-900 font-medium rounded-t-md',
-    inactive: 'border border-transparent text-gray-500 hover:text-gray-700 rounded-t-md',
+    list:     'border-b border-neutral-200 gap-0 dark:border-neutral-700',
+    active:   'border border-neutral-200 border-b-white -mb-px bg-white text-neutral-900 font-medium rounded-t-md dark:border-neutral-700 dark:border-b-neutral-900 dark:bg-neutral-900 dark:text-neutral-100',
+    inactive: 'border border-transparent text-neutral-500 hover:text-neutral-700 rounded-t-md dark:text-neutral-400 dark:hover:text-neutral-200',
   },
 }
 

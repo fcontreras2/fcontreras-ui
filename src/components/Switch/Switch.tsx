@@ -63,8 +63,8 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
               'block rounded-full transition-colors duration-200',
               'peer-disabled:opacity-50 peer-disabled:cursor-not-allowed',
               error
-                ? 'bg-red-200 peer-checked:bg-red-500'
-                : 'bg-gray-200 peer-checked:bg-primary-600',
+                ? 'bg-danger-200 peer-checked:bg-danger-500 dark:bg-danger-900 dark:peer-checked:bg-danger-600'
+                : 'bg-neutral-200 peer-checked:bg-primary-600 dark:bg-neutral-700 dark:peer-checked:bg-primary-500',
               sizes.track,
               classNames?.track,
             )}
@@ -83,15 +83,15 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
           />
         </span>
         {label && (
-          <span className={cn('text-gray-700 leading-snug', sizes.label, classNames?.label)}>
+          <span className={cn('text-neutral-700 leading-snug dark:text-neutral-300', sizes.label, classNames?.label)}>
             {label}
           </span>
         )}
       </label>
       {error ? (
-        <p className={cn('text-xs text-red-600', classNames?.errorText)}>{error}</p>
+        <p className={cn('text-xs text-danger-600 dark:text-danger-400', classNames?.errorText)}>{error}</p>
       ) : helperText ? (
-        <p className={cn('text-xs text-gray-500', classNames?.helperText)}>{helperText}</p>
+        <p className={cn('text-xs text-neutral-500 dark:text-neutral-400', classNames?.helperText)}>{helperText}</p>
       ) : null}
     </div>
   )

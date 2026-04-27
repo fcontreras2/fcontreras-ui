@@ -44,7 +44,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
             'rounded border transition-colors duration-150 cursor-pointer shrink-0 mt-0.5',
             'accent-primary-600',
             'disabled:opacity-50 disabled:cursor-not-allowed',
-            error ? 'border-red-500' : 'border-gray-300',
+            error ? 'border-danger-500 dark:border-danger-400' : 'border-neutral-300 dark:border-neutral-600',
             sizes.box,
             className,
             classNames?.checkbox,
@@ -52,15 +52,15 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
           {...props}
         />
         {label && (
-          <span className={cn('text-gray-700 leading-snug', sizes.label, classNames?.label)}>
+          <span className={cn('text-neutral-700 leading-snug dark:text-neutral-300', sizes.label, classNames?.label)}>
             {label}
           </span>
         )}
       </label>
       {error ? (
-        <p className={cn('text-xs text-red-600 ml-6', classNames?.errorText)}>{error}</p>
+        <p className={cn('text-xs text-danger-600 dark:text-danger-400 ml-6', classNames?.errorText)}>{error}</p>
       ) : helperText ? (
-        <p className={cn('text-xs text-gray-500 ml-6', classNames?.helperText)}>{helperText}</p>
+        <p className={cn('text-xs text-neutral-500 dark:text-neutral-400 ml-6', classNames?.helperText)}>{helperText}</p>
       ) : null}
     </div>
   )

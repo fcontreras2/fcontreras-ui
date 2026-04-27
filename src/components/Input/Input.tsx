@@ -53,7 +53,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       {label && (
         <label
           htmlFor={inputId}
-          className={cn('text-sm font-medium text-gray-700', classNames?.label)}
+          className={cn('text-sm font-medium text-neutral-700 dark:text-neutral-300', classNames?.label)}
         >
           {label}
         </label>
@@ -62,7 +62,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         {leftAddon && (
           <span
             className={cn(
-              'absolute left-3 flex items-center text-gray-500 pointer-events-none',
+              'absolute left-3 flex items-center text-neutral-500 dark:text-neutral-400 pointer-events-none',
               classNames?.leftAddon,
             )}
           >
@@ -73,14 +73,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           ref={ref}
           id={inputId}
           className={cn(
-            'w-full rounded-md border bg-white outline-none',
+            'w-full rounded-md border bg-white outline-none text-neutral-900',
+            'dark:bg-neutral-900 dark:text-neutral-100',
             'transition-colors duration-150',
-            'placeholder:text-gray-400',
+            'placeholder:text-neutral-400 dark:placeholder:text-neutral-600',
             'focus:ring-2 focus:ring-offset-0',
-            'disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50',
+            'disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-neutral-50 dark:disabled:bg-neutral-800',
             error
-              ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
-              : 'border-gray-300 focus:border-primary-500 focus:ring-primary-200',
+              ? 'border-danger-500 focus:border-danger-500 focus:ring-danger-200 dark:border-danger-400 dark:focus:ring-danger-900'
+              : 'border-neutral-300 focus:border-primary-500 focus:ring-primary-200 dark:border-neutral-700 dark:focus:border-primary-400 dark:focus:ring-primary-900',
             sizeStyles[size],
             leftAddon && 'pl-9',
             rightAddon && 'pr-9',
@@ -92,7 +93,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         {rightAddon && (
           <span
             className={cn(
-              'absolute right-3 flex items-center text-gray-500 pointer-events-none',
+              'absolute right-3 flex items-center text-neutral-500 dark:text-neutral-400 pointer-events-none',
               classNames?.rightAddon,
             )}
           >
@@ -101,9 +102,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         )}
       </div>
       {error ? (
-        <p className={cn('text-xs text-red-600', classNames?.errorText)}>{error}</p>
+        <p className={cn('text-xs text-danger-600 dark:text-danger-400', classNames?.errorText)}>{error}</p>
       ) : helperText ? (
-        <p className={cn('text-xs text-gray-500', classNames?.helperText)}>{helperText}</p>
+        <p className={cn('text-xs text-neutral-500 dark:text-neutral-400', classNames?.helperText)}>{helperText}</p>
       ) : null}
     </div>
   )

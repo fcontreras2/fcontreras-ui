@@ -32,7 +32,7 @@ const variantStyles: Record<TextVariant, string> = {
   'body-sm': 'text-sm leading-relaxed',
   caption: 'text-xs leading-normal',
   overline: 'text-xs font-medium uppercase tracking-widest leading-normal',
-  code: 'text-sm font-mono bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded',
+  code: 'text-sm font-mono bg-neutral-100 text-neutral-800 px-1.5 py-0.5 rounded dark:bg-neutral-800 dark:text-neutral-200',
 }
 
 const weightStyles: Record<TextWeight, string> = {
@@ -44,12 +44,12 @@ const weightStyles: Record<TextWeight, string> = {
 }
 
 const colorStyles: Record<TextColor, string> = {
-  default: 'text-gray-900',
-  muted: 'text-gray-500',
-  primary: 'text-primary-600',
-  success: 'text-green-600',
-  warning: 'text-yellow-600',
-  danger: 'text-red-600',
+  default: 'text-neutral-900 dark:text-neutral-100',
+  muted: 'text-neutral-500 dark:text-neutral-400',
+  primary: 'text-primary-600 dark:text-primary-400',
+  success: 'text-success-600 dark:text-success-400',
+  warning: 'text-warning-600 dark:text-warning-400',
+  danger: 'text-danger-600 dark:text-danger-400',
   inherit: 'text-inherit',
 }
 

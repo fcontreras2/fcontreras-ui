@@ -13,10 +13,10 @@ export interface ProgressProps {
 
 const variantStyles: Record<ProgressVariant, string> = {
   default: 'bg-primary-600',
-  success: 'bg-green-500',
-  warning: 'bg-yellow-500',
-  danger:  'bg-red-500',
-  info:    'bg-sky-500',
+  success: 'bg-success-500',
+  warning: 'bg-warning-500',
+  danger:  'bg-danger-500',
+  info:    'bg-info-500',
 }
 
 const sizeStyles: Record<ProgressSize, string> = {
@@ -39,7 +39,7 @@ export function Progress({
     <div className={cn('w-full', className)}>
       {label && (
         <div className="flex justify-between mb-1">
-          <span className="text-xs text-gray-500 font-medium">{labelText}</span>
+          <span className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">{labelText}</span>
         </div>
       )}
       <div
@@ -48,7 +48,7 @@ export function Progress({
         aria-valuemin={0}
         aria-valuemax={100}
         aria-label={typeof label === 'string' ? label : undefined}
-        className={cn('w-full overflow-hidden rounded-full bg-gray-200', sizeStyles[size])}
+        className={cn('w-full overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-700', sizeStyles[size])}
       >
         <div
           style={{ width: `${clamped}%` }}

@@ -20,15 +20,15 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const variantStyles: Record<NonNullable<ButtonProps['variant']>, string> = {
   primary:
-    'bg-primary-600 text-white hover:bg-primary-700 focus-visible:ring-primary-500 border-transparent',
+    'bg-primary-600 text-white hover:bg-primary-700 focus-visible:ring-primary-500 border-transparent dark:bg-primary-500 dark:hover:bg-primary-400',
   secondary:
-    'bg-gray-100 text-gray-900 hover:bg-gray-200 focus-visible:ring-gray-500 border-transparent',
+    'bg-secondary-600 text-white hover:bg-secondary-700 focus-visible:ring-secondary-500 border-transparent dark:bg-secondary-500 dark:hover:bg-secondary-400',
   danger:
-    'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500 border-transparent',
+    'bg-danger-600 text-white hover:bg-danger-700 focus-visible:ring-danger-500 border-transparent dark:bg-danger-500 dark:hover:bg-danger-400',
   ghost:
-    'bg-transparent text-gray-700 hover:bg-gray-100 focus-visible:ring-gray-500 border-transparent',
+    'bg-transparent text-neutral-700 hover:bg-neutral-100 focus-visible:ring-neutral-500 border-transparent dark:text-neutral-300 dark:hover:bg-neutral-800',
   outline:
-    'bg-transparent text-primary-600 hover:bg-primary-50 focus-visible:ring-primary-500 border-primary-600',
+    'bg-transparent text-primary-600 hover:bg-primary-50 focus-visible:ring-primary-500 border-primary-600 dark:text-primary-400 dark:border-primary-400 dark:hover:bg-primary-950',
 }
 
 const sizeStyles: Record<NonNullable<ButtonProps['size']>, string> = {

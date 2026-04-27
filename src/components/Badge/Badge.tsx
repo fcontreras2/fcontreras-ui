@@ -13,11 +13,11 @@ export interface BadgeProps {
 }
 
 const variantStyles: Record<NonNullable<BadgeProps['variant']>, string> = {
-  default: 'bg-gray-100 text-gray-700',
-  success: 'bg-green-100 text-green-700',
-  warning: 'bg-yellow-100 text-yellow-700',
-  danger: 'bg-red-100 text-red-700',
-  info: 'bg-primary-100 text-primary-700',
+  default: 'bg-neutral-100 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-200',
+  success: 'bg-success-100 text-success-700 dark:bg-success-900 dark:text-success-300',
+  warning: 'bg-warning-100 text-warning-700 dark:bg-warning-900 dark:text-warning-300',
+  danger:  'bg-danger-100 text-danger-700 dark:bg-danger-900 dark:text-danger-300',
+  info:    'bg-info-100 text-info-700 dark:bg-info-900 dark:text-info-300',
 }
 
 const sizeStyles: Record<NonNullable<BadgeProps['size']>, string> = {

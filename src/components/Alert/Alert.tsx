@@ -23,28 +23,28 @@ const variantStyles: Record<NonNullable<AlertProps['variant']>, {
   root: string; icon: string; defaultIcon: string
 }> = {
   default: {
-    root: 'bg-gray-50 border-gray-200 text-gray-800',
-    icon: 'text-gray-500',
+    root: 'bg-neutral-50 border-neutral-200 text-neutral-800 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-200',
+    icon: 'text-neutral-500 dark:text-neutral-400',
     defaultIcon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
   },
   success: {
-    root: 'bg-green-50 border-green-200 text-green-800',
-    icon: 'text-green-500',
+    root: 'bg-success-50 border-success-200 text-success-800 dark:bg-success-950 dark:border-success-800 dark:text-success-300',
+    icon: 'text-success-500 dark:text-success-400',
     defaultIcon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
   },
   warning: {
-    root: 'bg-yellow-50 border-yellow-200 text-yellow-800',
-    icon: 'text-yellow-500',
+    root: 'bg-warning-50 border-warning-200 text-warning-800 dark:bg-warning-950 dark:border-warning-800 dark:text-warning-300',
+    icon: 'text-warning-500 dark:text-warning-400',
     defaultIcon: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z',
   },
   danger: {
-    root: 'bg-red-50 border-red-200 text-red-800',
-    icon: 'text-red-500',
+    root: 'bg-danger-50 border-danger-200 text-danger-800 dark:bg-danger-950 dark:border-danger-800 dark:text-danger-300',
+    icon: 'text-danger-500 dark:text-danger-400',
     defaultIcon: 'M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z',
   },
   info: {
-    root: 'bg-primary-50 border-primary-200 text-primary-800',
-    icon: 'text-primary-500',
+    root: 'bg-info-50 border-info-200 text-info-800 dark:bg-info-950 dark:border-info-800 dark:text-info-300',
+    icon: 'text-info-500 dark:text-info-400',
     defaultIcon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
   },
 }

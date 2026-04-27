@@ -32,10 +32,10 @@ const sizeStyles: Record<AvatarSize, { root: string; text: string; status: strin
 }
 
 const statusStyles: Record<AvatarStatus, string> = {
-  online:  'bg-green-500',
-  offline: 'bg-gray-400',
-  away:    'bg-yellow-500',
-  busy:    'bg-red-500',
+  online:  'bg-success-500',
+  offline: 'bg-neutral-400',
+  away:    'bg-warning-500',
+  busy:    'bg-danger-500',
 }
 
 const PALETTE = [
@@ -84,7 +84,7 @@ export function Avatar({
           className={cn(
             'inline-flex size-full items-center justify-center font-medium text-white select-none',
             shapeClass,
-            name ? pickColor(name) : 'bg-gray-300',
+            name ? pickColor(name) : 'bg-neutral-300 dark:bg-neutral-600',
             sizes.text,
             classNames?.fallback,
           )}

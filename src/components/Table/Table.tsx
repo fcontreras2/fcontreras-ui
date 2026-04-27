@@ -63,10 +63,10 @@ const alignStyles: Record<'left' | 'center' | 'right', string> = {
 function SortIcon({ direction }: { direction: SortDirection }) {
   return (
     <span className="ml-1 inline-flex flex-col gap-px">
-      <svg aria-hidden="true" className={cn('size-2.5', direction === 'asc' ? 'text-primary-600' : 'text-gray-300')} viewBox="0 0 10 6" fill="currentColor">
+      <svg aria-hidden="true" className={cn('size-2.5', direction === 'asc' ? 'text-primary-600' : 'text-neutral-300')} viewBox="0 0 10 6" fill="currentColor">
         <path d="M0 6l5-6 5 6H0z" />
       </svg>
-      <svg aria-hidden="true" className={cn('size-2.5', direction === 'desc' ? 'text-primary-600' : 'text-gray-300')} viewBox="0 0 10 6" fill="currentColor">
+      <svg aria-hidden="true" className={cn('size-2.5', direction === 'desc' ? 'text-primary-600' : 'text-neutral-300')} viewBox="0 0 10 6" fill="currentColor">
         <path d="M0 0l5 6 5-6H0z" />
       </svg>
     </span>
@@ -82,7 +82,7 @@ function SkeletonRows({ cols, size }: { cols: number; size: 'sm' | 'md' | 'lg' }
         <tr key={i} className="animate-pulse">
           {Array.from({ length: cols }).map((_, j) => (
             <td key={j} className={sizeStyles[size].td}>
-              <span className="block h-3 bg-gray-200 rounded w-3/4" />
+              <span className="block h-3 bg-neutral-200 dark:bg-neutral-700 rounded w-3/4" />
             </td>
           ))}
         </tr>
@@ -128,7 +128,7 @@ export function Table<T>({
     <div
       className={cn(
         'w-full overflow-auto rounded-lg',
-        bordered ? 'border border-gray-200' : '',
+        bordered ? 'border border-neutral-200 dark:border-neutral-700' : '',
         className,
         classNames?.root,
       )}
@@ -138,7 +138,7 @@ export function Table<T>({
       >
         <thead
           className={cn(
-            'bg-gray-50 border-b border-gray-200',
+            'bg-neutral-50 border-b border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700',
             stickyHeader && 'sticky top-0 z-10',
             classNames?.thead,
           )}
@@ -152,10 +152,10 @@ export function Table<T>({
                 onClick={() => handleSort(col)}
                 className={cn(
                   sizes.th,
-                  'font-semibold text-gray-600 uppercase tracking-wider select-none',
-                  col.sortable && 'cursor-pointer hover:text-gray-900',
+                  'font-semibold text-neutral-600 uppercase tracking-wider select-none dark:text-neutral-400',
+                  col.sortable && 'cursor-pointer hover:text-neutral-900 dark:hover:text-neutral-100',
                   col.align ? alignStyles[col.align] : 'text-left',
-                  bordered && 'border-r border-gray-200 last:border-r-0',
+                  bordered && 'border-r border-neutral-200 last:border-r-0 dark:border-neutral-700',
                   col.className,
                   classNames?.th,
                 )}
@@ -170,7 +170,7 @@ export function Table<T>({
             ))}
           </tr>
         </thead>
-        <tbody className={cn('divide-y divide-gray-100', classNames?.tbody)}>
+        <tbody className={cn('divide-y divide-neutral-100 dark:divide-neutral-800', classNames?.tbody)}>
           {loading ? (
             <SkeletonRows cols={columns.length} size={size} />
           ) : data.length === 0 ? (
@@ -179,7 +179,7 @@ export function Table<T>({
                 colSpan={columns.length}
                 className={cn(
                   sizes.td,
-                  'text-center text-gray-400 py-10',
+                  'text-center text-neutral-400 py-10',
                   classNames?.emptyRow,
                 )}
               >
@@ -193,8 +193,8 @@ export function Table<T>({
                 onClick={() => onRowClick?.(row)}
                 className={cn(
                   'transition-colors',
-                  striped && index % 2 === 1 && 'bg-gray-50',
-                  onRowClick && 'cursor-pointer hover:bg-primary-50',
+                  striped && index % 2 === 1 && 'bg-neutral-50 dark:bg-neutral-800/50',
+                  onRowClick && 'cursor-pointer hover:bg-primary-50 dark:hover:bg-primary-950',
                   classNames?.tr,
                 )}
               >
@@ -203,9 +203,9 @@ export function Table<T>({
                     key={col.key}
                     className={cn(
                       sizes.td,
-                      'text-gray-700',
+                      'text-neutral-700 dark:text-neutral-300',
                       col.align ? alignStyles[col.align] : 'text-left',
-                      bordered && 'border-r border-gray-200 last:border-r-0',
+                      bordered && 'border-r border-neutral-200 last:border-r-0 dark:border-neutral-700',
                       col.className,
                       classNames?.td,
                     )}

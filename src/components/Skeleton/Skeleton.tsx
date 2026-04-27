@@ -10,7 +10,7 @@ export interface SkeletonProps {
   className?: string
 }
 
-const baseClass = 'animate-pulse bg-gray-200 rounded'
+const baseClass = 'animate-pulse bg-neutral-200 dark:bg-neutral-700 rounded'
 
 export function Skeleton({
   variant = 'text',

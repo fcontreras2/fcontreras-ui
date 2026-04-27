@@ -16,19 +16,19 @@ export interface BadgeDotProps {
 }
 
 const variantStyles: Record<NonNullable<BadgeDotProps['variant']>, string> = {
-  default: 'bg-gray-400',
-  success: 'bg-green-500',
-  warning: 'bg-yellow-500',
-  danger:  'bg-red-500',
-  info:    'bg-primary-500',
+  default: 'bg-neutral-400',
+  success: 'bg-success-500',
+  warning: 'bg-warning-500',
+  danger:  'bg-danger-500',
+  info:    'bg-info-500',
 }
 
 const labelColorStyles: Record<NonNullable<BadgeDotProps['variant']>, string> = {
-  default: 'text-gray-600',
-  success: 'text-green-700',
-  warning: 'text-yellow-700',
-  danger:  'text-red-700',
-  info:    'text-primary-700',
+  default: 'text-neutral-600 dark:text-neutral-400',
+  success: 'text-success-700 dark:text-success-400',
+  warning: 'text-warning-700 dark:text-warning-400',
+  danger:  'text-danger-700 dark:text-danger-400',
+  info:    'text-info-700 dark:text-info-400',
 }
 
 const sizeStyles: Record<NonNullable<BadgeDotProps['size']>, { dot: string; text: string; gap: string }> = {

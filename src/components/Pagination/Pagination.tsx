@@ -79,8 +79,8 @@ function NavButton({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        'inline-flex items-center justify-center rounded-md border border-gray-300 bg-white',
-        'text-gray-500 hover:bg-gray-50 hover:text-gray-700 transition-colors',
+        'inline-flex items-center justify-center rounded-md border border-neutral-300 bg-white dark:border-neutral-700 dark:bg-neutral-900',
+        'text-neutral-500 hover:bg-neutral-50 hover:text-neutral-700 transition-colors dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-200',
         'disabled:opacity-40 disabled:cursor-not-allowed',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500',
         sizeStyles[size],
@@ -135,7 +135,7 @@ export function Pagination({
         p === '...' ? (
           <span
             key={`dots-${i}`}
-            className={cn('inline-flex items-center justify-center text-gray-400', sizeStyles[size])}
+            className={cn('inline-flex items-center justify-center text-neutral-400 dark:text-neutral-600', sizeStyles[size])}
           >
             …
           </span>
@@ -150,8 +150,8 @@ export function Pagination({
               'inline-flex items-center justify-center rounded-md border transition-colors font-medium',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500',
               p === page
-                ? 'border-primary-600 bg-primary-600 text-white'
-                : 'border-gray-300 bg-white text-gray-700 hover:bg-gray-50',
+                ? 'border-primary-600 bg-primary-600 text-white dark:border-primary-500 dark:bg-primary-500'
+                : 'border-neutral-300 bg-white text-neutral-700 hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800',
               sizeStyles[size],
               classNames?.pageButton,
             )}
@@ -176,7 +176,7 @@ export function Pagination({
 
       {/* Info */}
       {showInfo && from && to && totalItems && (
-        <span className={cn('text-xs text-gray-500 ml-1', classNames?.info)}>
+        <span className={cn('text-xs text-neutral-500 dark:text-neutral-400 ml-1', classNames?.info)}>
           {from}–{to} of {totalItems}
         </span>
       )}

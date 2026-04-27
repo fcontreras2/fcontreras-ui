@@ -97,14 +97,14 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
         className={cn(
           'shrink-0 mt-0.5 cursor-pointer accent-primary-600',
           'disabled:cursor-not-allowed',
-          ctx?.error ? 'accent-red-500' : 'accent-primary-600',
+          ctx?.error ? 'accent-danger-500' : 'accent-primary-600',
           sizes.box,
           className,
           classNames?.radio,
         )}
       />
       {label && (
-        <span className={cn('text-gray-700 leading-snug', sizes.label, classNames?.label)}>
+        <span className={cn('text-neutral-700 leading-snug dark:text-neutral-300', sizes.label, classNames?.label)}>
           {label}
         </span>
       )}
@@ -137,7 +137,7 @@ export function RadioGroup({
     >
       <fieldset className={cn('flex flex-col gap-1', className, classNames?.root)}>
         {label && (
-          <legend className={cn('text-sm font-medium text-gray-700 mb-1', classNames?.label)}>
+          <legend className={cn('text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1', classNames?.label)}>
             {label}
           </legend>
         )}
@@ -150,9 +150,9 @@ export function RadioGroup({
           {children}
         </div>
         {error ? (
-          <p className={cn('text-xs text-red-600 mt-0.5', classNames?.errorText)}>{error}</p>
+          <p className={cn('text-xs text-danger-600 dark:text-danger-400 mt-0.5', classNames?.errorText)}>{error}</p>
         ) : helperText ? (
-          <p className={cn('text-xs text-gray-500 mt-0.5', classNames?.helperText)}>{helperText}</p>
+          <p className={cn('text-xs text-neutral-500 dark:text-neutral-400 mt-0.5', classNames?.helperText)}>{helperText}</p>
         ) : null}
       </fieldset>
     </RadioGroupContext.Provider>

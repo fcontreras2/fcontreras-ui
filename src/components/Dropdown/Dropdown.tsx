@@ -60,8 +60,8 @@ export function Dropdown({
         anchor={align === 'right' ? 'bottom end' : 'bottom start'}
         transition
         className={cn(
-          'absolute z-50 w-56 origin-top-left bg-white rounded-lg shadow-lg',
-          'border border-gray-200 py-1 px-1 text-sm/6',
+          'absolute z-50 w-56 origin-top-left bg-white rounded-lg shadow-lg dark:bg-neutral-900',
+          'border border-neutral-200 py-1 px-1 text-sm/6 dark:border-neutral-700',
           'transition duration-100 ease-out data-[closed]:scale-95 data-[closed]:opacity-0',
           align === 'right' && 'origin-top-right',
           classNames.menu,
@@ -85,9 +85,9 @@ export function DropdownItem({
     <MenuItem
       as="button"
       className={cn(
-        'group flex w-full items-center gap-3 rounded-md px-3 py-2 transition',
-        'hover:bg-gray-100 focus:outline-none',
-        variant === 'danger' && 'text-red-600 hover:bg-red-50',
+        'group flex w-full items-center gap-3 rounded-md px-3 py-2 transition text-neutral-700 dark:text-neutral-300',
+        'hover:bg-neutral-100 focus:outline-none dark:hover:bg-neutral-800',
+        variant === 'danger' && 'text-danger-600 hover:bg-danger-50 dark:text-danger-400 dark:hover:bg-danger-950',
         className,
         classNames.root,
       )}
@@ -116,7 +116,7 @@ export function DropdownDivider({ className, classNames = {} }: DropdownDividerP
   return (
     <div
       className={cn(
-        'my-1 h-px bg-gray-200',
+        'my-1 h-px bg-neutral-200 dark:bg-neutral-700',
         className,
         classNames.root,
       )}
