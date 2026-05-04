@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { cn } from '../../utils/cn'
+import { Icon } from '../Icon'
 
 export interface ModalClassNames {
   overlay?: string
@@ -146,9 +147,7 @@ export function Modal({
                   classNames?.closeButton,
                 )}
               >
-                <svg aria-hidden="true" className="size-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <Icon name="x" size="sm" weight="bold" />
               </button>
             )}
           </div>

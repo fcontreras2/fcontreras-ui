@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { cn } from '../../utils/cn'
+import { Icon } from '../Icon'
 
 export type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 export type AvatarShape = 'circle' | 'square'
@@ -90,9 +91,7 @@ export function Avatar({
           )}
         >
           {name ? getInitials(name) : (
-            <svg aria-hidden="true" className="size-1/2 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8c0 2.208-1.79 4-3.998 4-2.208 0-3.998-1.792-3.998-4s1.79-4 3.998-4c2.208 0 3.998 1.792 3.998 4z" />
-            </svg>
+            <Icon name="user" variant="solid" className="size-1/2 text-white" />
           )}
         </span>
       )}

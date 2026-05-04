@@ -9,7 +9,7 @@ interface RadioGroupContextValue {
   onChange?: (value: string) => void
   size: 'sm' | 'md' | 'lg'
   disabled?: boolean
-  error?: boolean
+  isInvalid?: boolean
 }
 
 const RadioGroupContext = createContext<RadioGroupContextValue | null>(null)
@@ -18,10 +18,7 @@ const RadioGroupContext = createContext<RadioGroupContextValue | null>(null)
 
 export interface RadioGroupClassNames {
   root?: string
-  label?: string
   group?: string
-  helperText?: string
-  errorText?: string
 }
 
 export interface RadioGroupProps {
@@ -29,9 +26,7 @@ export interface RadioGroupProps {
   value?: string
   defaultValue?: string
   onChange?: (value: string) => void
-  label?: string
-  helperText?: string
-  error?: string
+  isInvalid?: boolean
   size?: 'sm' | 'md' | 'lg'
   orientation?: 'vertical' | 'horizontal'
   disabled?: boolean
@@ -95,9 +90,9 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
         disabled={isDisabled}
         onChange={handleChange}
         className={cn(
-          'shrink-0 mt-0.5 cursor-pointer accent-primary-600',
+          'shrink-0 mt-0.5 cursor-pointer',
           'disabled:cursor-not-allowed',
-          ctx?.error ? 'accent-danger-500' : 'accent-primary-600',
+          ctx?.isInvalid ? 'accent-danger-500' : 'accent-primary-600',
           sizes.box,
           className,
           classNames?.radio,
@@ -118,9 +113,7 @@ export function RadioGroup({
   name,
   value,
   onChange,
-  label,
-  helperText,
-  error,
+  isInvalid = false,
   size = 'md',
   orientation = 'vertical',
   disabled,
@@ -133,28 +126,20 @@ export function RadioGroup({
 
   return (
     <RadioGroupContext.Provider
-      value={{ name: groupName, value, onChange, size, disabled, error: !!error }}
+      value={{ name: groupName, value, onChange, size, disabled, isInvalid }}
     >
-      <fieldset className={cn('flex flex-col gap-1', className, classNames?.root)}>
-        {label && (
-          <legend className={cn('text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1', classNames?.label)}>
-            {label}
-          </legend>
+      <div
+        role="radiogroup"
+        className={cn(
+          orientation === 'horizontal' ? 'flex flex-wrap gap-x-4 gap-y-2' : 'flex flex-col gap-2',
+          className,
+          classNames?.root,
         )}
-        <div
-          className={cn(
-            orientation === 'horizontal' ? 'flex flex-wrap gap-x-4 gap-y-2' : 'flex flex-col gap-2',
-            classNames?.group,
-          )}
-        >
-          {children}
-        </div>
-        {error ? (
-          <p className={cn('text-xs text-danger-600 dark:text-danger-400 mt-0.5', classNames?.errorText)}>{error}</p>
-        ) : helperText ? (
-          <p className={cn('text-xs text-neutral-500 dark:text-neutral-400 mt-0.5', classNames?.helperText)}>{helperText}</p>
-        ) : null}
-      </fieldset>
+      >
+        {children}
+      </div>
     </RadioGroupContext.Provider>
   )
 }
+
+RadioGroup.displayName = 'RadioGroup'

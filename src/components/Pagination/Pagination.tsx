@@ -1,4 +1,5 @@
 import { cn } from '../../utils/cn'
+import { Icon } from '../Icon'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -125,9 +126,7 @@ export function Pagination({
         onClick={() => onChange(page - 1)}
         className={classNames?.button}
       >
-        <svg aria-hidden="true" className="size-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-          <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <Icon name="chevron-left" size="sm" weight="bold" />
       </NavButton>
 
       {/* Pages */}
@@ -169,9 +168,7 @@ export function Pagination({
         onClick={() => onChange(page + 1)}
         className={classNames?.button}
       >
-        <svg aria-hidden="true" className="size-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-          <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <Icon name="chevron-right" size="sm" weight="bold" />
       </NavButton>
 
       {/* Info */}

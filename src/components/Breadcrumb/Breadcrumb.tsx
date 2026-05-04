@@ -1,4 +1,5 @@
 import { cn } from '../../utils/cn'
+import { Icon } from '../Icon'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -24,14 +25,6 @@ export interface BreadcrumbProps {
   classNames?: BreadcrumbClassNames
 }
 
-// ─── Default separator ────────────────────────────────────────────────────────
-
-const ChevronRight = () => (
-  <svg aria-hidden="true" className="size-3.5 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-    <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
-
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export function Breadcrumb({
@@ -40,7 +33,7 @@ export function Breadcrumb({
   className,
   classNames,
 }: BreadcrumbProps) {
-  const sep = separator ?? <ChevronRight />
+  const sep = separator ?? <Icon name="chevron-right" size="sm" weight="bold" />
 
   return (
     <nav aria-label="Breadcrumb" className={cn(className, classNames?.root)}>

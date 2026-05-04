@@ -1,4 +1,5 @@
 import { cn } from '../../utils/cn'
+import { Icon } from '../Icon'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -61,16 +62,9 @@ const alignStyles: Record<'left' | 'center' | 'right', string> = {
 // ─── Sort Icon ────────────────────────────────────────────────────────────────
 
 function SortIcon({ direction }: { direction: SortDirection }) {
-  return (
-    <span className="ml-1 inline-flex flex-col gap-px">
-      <svg aria-hidden="true" className={cn('size-2.5', direction === 'asc' ? 'text-primary-600' : 'text-neutral-300')} viewBox="0 0 10 6" fill="currentColor">
-        <path d="M0 6l5-6 5 6H0z" />
-      </svg>
-      <svg aria-hidden="true" className={cn('size-2.5', direction === 'desc' ? 'text-primary-600' : 'text-neutral-300')} viewBox="0 0 10 6" fill="currentColor">
-        <path d="M0 0l5 6 5-6H0z" />
-      </svg>
-    </span>
-  )
+  if (direction === 'asc') return <Icon name="sort-asc" size="xs" className="ml-1 text-primary-600" />
+  if (direction === 'desc') return <Icon name="sort-desc" size="xs" className="ml-1 text-primary-600" />
+  return <Icon name="sort-asc" size="xs" className="ml-1 text-neutral-300 dark:text-neutral-600" />
 }
 
 // ─── Skeleton rows ────────────────────────────────────────────────────────────

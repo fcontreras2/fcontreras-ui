@@ -9,17 +9,17 @@ describe('Badge', () => {
 
   it('applies success variant classes', () => {
     render(<Badge variant="success">Success</Badge>)
-    expect(screen.getByText('Success')).toHaveClass('bg-green-100', 'text-green-700')
+    expect(screen.getByText('Success')).toHaveClass('bg-success-100', 'text-success-700')
   })
 
   it('applies danger variant classes', () => {
     render(<Badge variant="danger">Danger</Badge>)
-    expect(screen.getByText('Danger')).toHaveClass('bg-red-100', 'text-red-700')
+    expect(screen.getByText('Danger')).toHaveClass('bg-danger-100', 'text-danger-700')
   })
 
   it('applies warning variant classes', () => {
     render(<Badge variant="warning">Warning</Badge>)
-    expect(screen.getByText('Warning')).toHaveClass('bg-yellow-100')
+    expect(screen.getByText('Warning')).toHaveClass('bg-warning-100')
   })
 
   it('applies small size classes', () => {

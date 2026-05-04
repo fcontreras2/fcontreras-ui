@@ -1,6 +1,7 @@
 import { useId } from 'react'
 import ReactSelect, { type Props as ReactSelectProps, type GroupBase } from 'react-select'
 import { cn } from '../../utils/cn'
+import type React from 'react'
 
 export type { SingleValue, MultiValue, ActionMeta } from 'react-select'
 
@@ -11,9 +12,7 @@ export interface SelectOption {
 
 export interface SelectClassNames {
   wrapper?: string
-  label?: string
-  errorText?: string
-  helperText?: string
+  leftIcon?: string
 }
 
 export interface SelectProps<
@@ -21,10 +20,9 @@ export interface SelectProps<
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = GroupBase<Option>,
 > extends Omit<ReactSelectProps<Option, IsMulti, Group>, 'unstyled' | 'classNames'> {
-  label?: string
-  error?: string
-  helperText?: string
+  isInvalid?: boolean
   fullWidth?: boolean
+  leftIcon?: React.ReactNode
   classNames?: SelectClassNames
   selectClassNames?: ReactSelectProps<Option, IsMulti, Group>['classNames']
 }
@@ -34,10 +32,9 @@ export function Select<
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = GroupBase<Option>,
 >({
-  label,
-  error,
-  helperText,
+  isInvalid = false,
   fullWidth = false,
+  leftIcon,
   classNames,
   selectClassNames,
   inputId,
@@ -47,14 +44,17 @@ export function Select<
   const id = inputId ?? generatedId
 
   return (
-    <div className={cn('flex flex-col gap-1', fullWidth && 'w-full', classNames?.wrapper)}>
-      {label && (
-        <label
-          htmlFor={id}
-          className={cn('text-sm font-medium text-neutral-700 dark:text-neutral-300', classNames?.label)}
+    <div className={cn('relative', fullWidth && 'w-full', classNames?.wrapper)}>
+      {leftIcon && (
+        <span
+          aria-hidden="true"
+          className={cn(
+            'pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 z-10 flex items-center text-neutral-500 dark:text-neutral-400',
+            classNames?.leftIcon,
+          )}
         >
-          {label}
-        </label>
+          {leftIcon}
+        </span>
       )}
       <ReactSelect<Option, IsMulti, Group>
         inputId={id}
@@ -64,7 +64,7 @@ export function Select<
             cn(
               'rounded-md border bg-white min-h-9 text-sm transition-colors cursor-pointer text-neutral-900',
               'dark:bg-neutral-900 dark:text-neutral-100',
-              error
+              isInvalid
                 ? cn('border-danger-500', state.isFocused && 'ring-2 ring-danger-200 dark:ring-danger-900')
                 : cn(
                     'border-neutral-300 dark:border-neutral-700',
@@ -78,8 +78,7 @@ export function Select<
               'dark:border-neutral-700 dark:bg-neutral-900',
               selectClassNames?.menu?.(state),
             ),
-          menuList: (state) =>
-            cn('py-1', selectClassNames?.menuList?.(state)),
+          menuList: (state) => cn('py-1', selectClassNames?.menuList?.(state)),
           option: (state) =>
             cn(
               'px-3 py-2 text-sm cursor-pointer',
@@ -105,9 +104,8 @@ export function Select<
               selectClassNames?.multiValueRemove?.(state),
             ),
           valueContainer: (state) =>
-            cn('px-3 py-1.5 gap-1 flex-wrap', selectClassNames?.valueContainer?.(state)),
-          indicatorsContainer: (state) =>
-            cn('pr-2', selectClassNames?.indicatorsContainer?.(state)),
+            cn('px-3 py-1.5 gap-1 flex-wrap', leftIcon && 'pl-9', selectClassNames?.valueContainer?.(state)),
+          indicatorsContainer: (state) => cn('pr-2', selectClassNames?.indicatorsContainer?.(state)),
           clearIndicator: (state) =>
             cn(
               'text-neutral-400 hover:text-neutral-600 cursor-pointer p-1 dark:text-neutral-500 dark:hover:text-neutral-300',
@@ -133,11 +131,8 @@ export function Select<
         }}
         {...props}
       />
-      {error ? (
-        <p className={cn('text-xs text-danger-600 dark:text-danger-400', classNames?.errorText)}>{error}</p>
-      ) : helperText ? (
-        <p className={cn('text-xs text-neutral-500 dark:text-neutral-400', classNames?.helperText)}>{helperText}</p>
-      ) : null}
     </div>
   )
 }
+
+Select.displayName = 'Select'

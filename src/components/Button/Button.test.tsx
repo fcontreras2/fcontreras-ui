@@ -31,9 +31,9 @@ describe('Button', () => {
     expect(handleClick).not.toHaveBeenCalled()
   })
 
-  it('shows spinner svg when loading', () => {
+  it('shows spinner when loading', () => {
     render(<Button loading>Click me</Button>)
-    expect(document.querySelector('svg[aria-hidden="true"]')).toBeInTheDocument()
+    expect(document.querySelector('svg[role="status"]')).toBeInTheDocument()
   })
 
   it('renders full width when fullWidth is true', () => {
